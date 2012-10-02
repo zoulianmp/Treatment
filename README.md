@@ -1,6 +1,8 @@
 Read Tomotherapy Patient Treatment Archives
 ===========================================
 
+RESEARCH USE ONLY
+
 This Python module provides a simple API for accessing data contained within a standard Tomotherapy patient treatment archive. This includes MVCT and kVCT datasets, sinograms, planning volumes/contours, patient dose grids, and patient specific quality assurance data (DQA) such as irradiated films and phantom dose grids.
 
 Installation
