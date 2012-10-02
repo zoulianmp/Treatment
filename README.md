@@ -27,7 +27,7 @@ The archive is generally made up of a primary XML file, usually called something
 
 Dependencies
 ------------
-The patient archive is pretty ragged XML, so [lxml]() is used to parse it. [numpy](), [scipy]() and [pylab]() are used for manipulation of data arrays and display.
+The patient archive is pretty ragged XML, so [lxml](http://lxml.de/) is used to parse it. [numpy](http://numpy.scipy.org/), [scipy](http://www.scipy.org/) and [pylab](http://www.scipy.org/PyLab) are used for manipulation of data arrays and display.
 
 
 Custom Mappings
