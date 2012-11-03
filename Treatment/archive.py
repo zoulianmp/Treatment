@@ -69,7 +69,7 @@ class Record(object):
                 if len(t) == target.length or target.length is None:
                     targets.append(obj(t, **target.attrs))
  
-            assert len(targets) > 0, "<%s not found in tree." % target.tag
+            #assert len(targets) > 0, "<%s not found in tree." % target.tag
             if target.unique is True:
                 assert len(targets) == 1, \
                     "%s possible entries found for <%s> when asserted as unique." \
@@ -121,7 +121,7 @@ class VolumeImage(Record):
         
     def load(self):
         #logger.info("Reading image: %s" % self.filename)
-        self.data = numpy.fromstring(file(self.filename).read(), dtype=dtypes[self.dtype])
+        self.data = numpy.fromstring(file(self.filename).read(), dtype=data_types[self.dtype])
         self.data.resize(self.shape)
 
     @property
