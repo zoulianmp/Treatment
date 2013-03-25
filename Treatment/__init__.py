@@ -9,7 +9,7 @@ logger.addHandler(handler)
 
 
 from archive import Archive, Patient, VolumeImage, Contour, Film
-from _helpers import tt_tuple, tt_str
+from _helpers import tt_tuple, tt_str, tt_float, tt_int
 
 def debug(debug_on=False):
     global logger, debugging
@@ -21,7 +21,7 @@ def debug(debug_on=False):
         debugging = False
 
 default_mapping = {
-    "patient" : {
+    "patient_info" : {
         "tag" : "briefPatient",
         "obj" : Patient,
         "attrs" : {
@@ -30,6 +30,17 @@ default_mapping = {
             "dob" : {"tag" : "patientBirthDate"},
             "unique_id" : {"tag" : "patientID"},
             "currency" : {"tag" : "currency"},
+        },
+    },
+    "treatment_info" : {
+        "tag" : "FullPatient",
+        "obj" : Patient,
+        "attrs" : {
+            "disease_name" : {"tag" : "diseaseName", "unique" : False},
+            "prescribed_dose" : {"tag" : "prescribedDose", "obj" : tt_float, "unique" : False},
+            "gantry_period" : {"tag" : "nominalGantryPeriod", "obj" : tt_float, "unique" : False},
+            "couch_speed" : {"tag" : "desiredCouchSpeed", "obj" : tt_float, "unique" : False},
+            "projections_per_rotation" : {"tag" : "numProjsPerRotation", "obj" : tt_int, "unique" : False},
         },
     },
     "images" : {

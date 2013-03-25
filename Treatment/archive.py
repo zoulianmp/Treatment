@@ -106,7 +106,7 @@ class Patient(Record):
 class Contour(Record):
     def __init__(self, tree, **kwargs):
         super(Contour, self).__init__(tree, **kwargs)
-        self.load()
+#        self.load()
 
     def load(self):
         self.rois = etree.parse(file(self.filename)).iter("pointData")
@@ -117,7 +117,7 @@ class Contour(Record):
 class VolumeImage(Record):
     def __init__(self, tree, **kwargs):
         super(VolumeImage, self).__init__(tree, **kwargs)
-        self.load()
+#        self.load()
         
     def load(self):
         #logger.info("Reading image: %s" % self.filename)
@@ -144,7 +144,7 @@ class VolumeImage(Record):
 class Film(Record):
     def __init__(self, tree, **kwargs):
         super(Film, self).__init__(tree, **kwargs)
-        self.load()
+#        self.load()
         
     def load(self):
         #logger.info("Reading film: %s" % self.filename)
