@@ -54,6 +54,9 @@ def tt_str(tree, dtype=str):
 
 def tt_int(tree, dtype=int):
     return dtype(tree.text)
+ 
+def tt_float(tree, dtype=float):
+    return dtype(tree.text)
     
 def timestamp(tree):
     date = int(tree.find("data").text)
