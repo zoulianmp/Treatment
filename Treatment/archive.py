@@ -56,10 +56,13 @@ class Record(object):
         for name, target in kwargs.iteritems():
             target = Target(**target)
 
+            print list(self.tree.iter(target.tag), target.tag)
+
             targets = []
             for t in self.tree.iter(target.tag):
                 if target.typ is not None:
                     if target.typ != t.attrib["Type"]:
+                        print name, target.typ, t.attrib["Type"]
                         continue
                 if target.obj is None:
                     obj = data_types[t.attrib["Type"]]
@@ -100,13 +103,14 @@ class Archive(Record):
         
         
 class Patient(Record):
-    pass        
-
+    def __init__(self, tree, **kwargs):
+        super(Patient, self).__init__(tree, **kwargs)
+ 
 
 class Contour(Record):
     def __init__(self, tree, **kwargs):
         super(Contour, self).__init__(tree, **kwargs)
-        self.load()
+#        self.load()
 
     def load(self):
         self.rois = etree.parse(file(self.filename)).iter("pointData")
@@ -117,7 +121,7 @@ class Contour(Record):
 class VolumeImage(Record):
     def __init__(self, tree, **kwargs):
         super(VolumeImage, self).__init__(tree, **kwargs)
-        self.load()
+#        self.load()
         
     def load(self):
         #logger.info("Reading image: %s" % self.filename)
@@ -144,7 +148,7 @@ class VolumeImage(Record):
 class Film(Record):
     def __init__(self, tree, **kwargs):
         super(Film, self).__init__(tree, **kwargs)
-        self.load()
+#        self.load()
         
     def load(self):
         #logger.info("Reading film: %s" % self.filename)
