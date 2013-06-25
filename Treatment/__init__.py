@@ -30,6 +30,8 @@ default_mapping = {
             "dob" : {"tag" : "patientBirthDate"},
             "unique_id" : {"tag" : "patientID"},
             "currency" : {"tag" : "currency"},
+            "disease_name" : {"tag" : "diseaseName"},
+            "prescibed_dose" : {"tag" : "prescribedDose", "unique" : False, "obj" : float},
         },
     },
     "images" : {
