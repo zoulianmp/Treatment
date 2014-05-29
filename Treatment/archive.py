@@ -177,4 +177,14 @@ class Film(Record):
     @property
     def x_extent(self):
         return (0, self.shape[1]*self.resolution[1])      
-          
+         
+
+class Sinogram(Record):
+    def __init__(self, tree, **kwargs):
+        super(Sinogram, self).__init__(tree, **kwargs)
+#        self.load
+
+    def load(self):
+        self.data = numpy.fromstring(file(self.filename).read(), dtype='>u4')
+        self. data = self.data.reshape(len(self.data)/643, 643)
+

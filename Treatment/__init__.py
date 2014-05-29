@@ -8,7 +8,7 @@ handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 
-from archive import Archive, Patient, VolumeImage, Contour, Film
+from archive import Archive, Patient, VolumeImage, Contour, Film, Sinogram
 from _helpers import tt_tuple, tt_str, tt_float, tt_int
 
 def debug(debug_on=False):
@@ -123,6 +123,14 @@ default_mapping = {
                 "unique" : False,
                 "length" : 2,
             },
+        },
+    },
+    "sinograms" : {
+        "tag" : "detectorSinogram",
+        "unique" : False,
+        "obj" : Sinogram,
+        "attrs" : {
+            "filename" : {"tag" : "sinogramDataFile"},
         },
     },
 }
