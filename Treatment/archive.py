@@ -69,7 +69,10 @@ class Record(object):
                 if len(t) == target.length or target.length is None:
                     targets.append(obj(t, **target.attrs))
  
-            #assert len(targets) > 0, "<%s not found in tree." % target.tag
+            #assert len(targets) > 0, "<%s> not found in tree." % target.tag
+            if len(targets) == 0:
+                return
+
             if target.unique is True:
                 assert len(targets) == 1, \
                     "%s possible entries found for <%s> when asserted as unique." \
